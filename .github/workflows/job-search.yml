@@ -1,0 +1,46 @@
+name: JobHunter AI Search
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 08:30 and 17:30 India time (UTC+5:30)
+    - cron: "0 3,12 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: jobhunter-search
+  cancel-in-progress: false
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout private repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Collect and score jobs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
+
+      - name: Save job tracker
+        run: |
+          git config user.name "JobHunter AI"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/jobs.csv
+          git diff --cached --quiet || git commit -m "Update job tracker"
+          git push

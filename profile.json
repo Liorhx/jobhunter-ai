@@ -1,0 +1,57 @@
+{
+  "candidate": {
+    "headline": "Full Stack Developer | React.js | Node.js | MongoDB | AI Integrations",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "preferred_locations": [
+      "India",
+      "Remote India",
+      "Worldwide remote"
+    ],
+    "experience_level": [
+      "entry",
+      "junior",
+      "associate",
+      "0-3 years"
+    ],
+    "target_roles": [
+      "Full Stack Developer",
+      "MERN Stack Developer",
+      "React Developer",
+      "Node.js Developer",
+      "AI Full Stack Developer",
+      "Software Engineer",
+      "Software Development Engineer",
+      "Product Engineer"
+    ],
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Redis",
+      "REST API",
+      "React Query",
+      "JWT",
+      "Gemini",
+      "LLM",
+      "AI integration",
+      "Vite",
+      "HTML",
+      "CSS",
+      "Git"
+    ],
+    "preferred_work_modes": [
+      "remote",
+      "hybrid"
+    ],
+    "minimum_salary_lpa": 5,
+    "target_salary_lpa": 8
+  },
+  "filters": {
+    "minimum_score": 35,
+    "only_india_eligible_or_location_unclear": true,
+    "max_ai_jobs_per_run": 15,
+    "include_jobs_without_salary": true
+  }
+}
